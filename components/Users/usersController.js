@@ -5,7 +5,8 @@ const router = express.Router();
 
 router.get('', async (req, res) => {
   try {
-    const users = await usersService.getByQuery(req.query);
+    const { values = {}, properties = [] } = req.query;
+    const users = await usersService.getByQuery(values, properties);
 
     res.status(200).json(users);
   } catch (e) {

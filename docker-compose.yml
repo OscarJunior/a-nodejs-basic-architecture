@@ -19,7 +19,7 @@ services:
     depends_on:
       - mongodb
     ports:
-      - '${CONTAINER_PORT}:8080'
+      - '${CONTAINER_PORT}:${CONTAINER_PORT}'
       - '9229:9229'
     volumes:
       - '.:/app'

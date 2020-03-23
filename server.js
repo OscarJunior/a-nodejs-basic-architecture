@@ -4,7 +4,7 @@ const database = require('./config/database');
 const { PORT } = require('./config/environment');
 const logger = require('./config/logger');
 
-const defaultErrorHandler = require('./handleError/handler');
+const defaultErrorHandler = require('./errors/handler');
 
 const port = PORT || '3000';
 const server = http.createServer(app);

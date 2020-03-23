@@ -16,6 +16,7 @@ For this, we gonna use these technologies:
 * vscode
 * nodemon
 * rc
+* winston
 
 The most of them are explained [in this repository](https://github.com/goldbergyoni/nodebestpractices#1-project-structure-practices), too.
 We are gonna use *Docker* as cornerstone so it and *Docker Compose* will only be the two technologies we need to install in our local environment (I mean, in our machine).

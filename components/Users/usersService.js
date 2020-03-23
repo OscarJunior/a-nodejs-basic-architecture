@@ -1,10 +1,12 @@
 const usersDAL = require('./usersDAL');
+const ApiError = require('../../handleError/ApiErrors');
+const { RequiredInout } = require('../../handleError/commonErrors');
 
 const getByQuery = (query, populates) => {
   const result = usersDAL.findUsers(query);
 
   if (!populates) {
-    return result;
+    throw new ApiError(RequiredInout, 500, 'populates property is required', true);
   }
 
   if (!populates.length) {
@@ -15,5 +17,5 @@ const getByQuery = (query, populates) => {
 };
 
 module.exports = {
-  getByQuery
+  getByQuery,
 };

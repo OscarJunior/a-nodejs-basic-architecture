@@ -5,7 +5,8 @@
   "main": "server.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "node --inspect=0.0.0.0 server"
+    "start:dev": "nodemon --inspect=0.0.0.0 server",
+    "start:prod": "node server"
   },
   "author": "",
   "license": "ISC",
@@ -26,6 +27,7 @@
     "eslint-plugin-jsx-a11y": "^6.2.3",
     "eslint-plugin-node": "^11.0.0",
     "eslint-plugin-react": "^7.19.0",
+    "nodemon": "^2.0.2",
     "prettier": "^2.0.1"
   }
 }

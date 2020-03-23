@@ -9,6 +9,7 @@ function AppError(name, httpCode, description, isOperational) {
   this.description = description;
   this.isOperational = isOperational;
 
+  // default handler
   defaultErrorHandler.handler.handleError(this);
 }
 

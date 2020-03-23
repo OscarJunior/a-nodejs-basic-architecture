@@ -2,9 +2,10 @@
   "name": "nodejs-basic-architecture",
   "version": "1.0.0",
   "description": "",
-  "main": "index.js",
+  "main": "server.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node --inspect=0.0.0.0 server"
   },
   "author": "",
   "license": "ISC",

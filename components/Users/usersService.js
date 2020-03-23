@@ -1,8 +1,11 @@
 const usersDAL = require('./usersDAL');
 
-
 const getByQuery = (query, populates) => {
   const result = usersDAL.findUsers(query);
+
+  if (!populates) {
+    return result;
+  }
 
   if (!populates.length) {
     return result;

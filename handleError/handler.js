@@ -1,12 +1,15 @@
-function logError(err) {
-  console.info(JSON.stringify(err));
+const logger = require('../config/logger');
 
-  return Promise.resolve();
+function logError(err) {
+  logger.log({
+    level: 'error',
+    ...err,
+  });
 }
 
 function DefaultErrorHandler() {
-  this.handleError = async (err) => {
-    await logError(err);
+  this.handleError = (err) => {
+    logError(err);
 
     if (!err.isOperational) {
       process.exit(1);

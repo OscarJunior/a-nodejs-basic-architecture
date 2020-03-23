@@ -1,2 +1,4 @@
 node_modules/
 .envrc
+combined.log
+error.log

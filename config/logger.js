@@ -32,7 +32,12 @@ function init() {
     );
   }
 
-  return () => logger;
+  /**
+   * https://github.com/goldbergyoni/nodebestpractices#-35-name-your-functionshttps://github.com/goldbergyoni/nodebestpractices#-35-name-your-functions
+   */
+  return function getLogger() {
+    return logger;
+  };
 }
 
 module.exports = init()();

@@ -7,17 +7,17 @@ const bodyParser = require('body-parser');
 const packageJson = require('../package.json');
 
 // routes
-const usersController = require('../components/Users/usersController');
+const { usersController } = require('../components/Users');
 
 const app = express();
 
 const bodyParserJson = bodyParser.json({
-  limit: '5mb'
+  limit: '5mb',
 });
 const bodyParserUrl = bodyParser.urlencoded({
   limit: '5mb',
   extended: true,
-  parameterLimit: 50000
+  parameterLimit: 50000,
 });
 
 app.use(compression());
@@ -27,7 +27,7 @@ app.use('/api/users', bodyParserUrl, bodyParserJson, usersController);
 app.use('/', (req, res) => {
   res.json({
     name: packageJson.name,
-    version: packageJson.version
+    version: packageJson.version,
   });
 });
 

@@ -1,5 +1,8 @@
 const defaultErrorHandler = require('./handler');
 
+/**
+ * https://github.com/goldbergyoni/nodebestpractices#-35-name-your-functions
+ */
 function AppError(name, httpCode, description, isOperational) {
   Error.call(this);
   Error.captureStackTrace(this);

@@ -17,6 +17,12 @@ logger.log({
   message: `Your server is listening on port ${port} (http://localhost:${port})`,
 });
 
+/**
+ * https://github.com/goldbergyoni/nodebestpractices#-210-catch-unhandled-promise-rejections
+ */
+process.on('unhandledRejection', (reason) => {
+  throw reason;
+});
 process.on('uncaughtException', (error) => {
   defaultErrorHandler.handler.handleError(error);
 });

@@ -13,6 +13,6 @@
             "localRoot": "${workspaceFolder}",
             "remoteRoot": "/app",
             "protocol": "inspector"
-          }
+        }
     ]
 }

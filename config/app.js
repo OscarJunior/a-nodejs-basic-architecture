@@ -23,7 +23,7 @@ const bodyParserUrl = bodyParser.urlencoded({
 app.use(compression());
 app.use(cors());
 app.use(cookieParser());
-app.use('/api/users', bodyParserUrl, bodyParserJson, usersController);
+app.use('/api/user', bodyParserUrl, bodyParserJson, usersController);
 app.use('/', (req, res) => {
   res.json({
     name: packageJson.name,

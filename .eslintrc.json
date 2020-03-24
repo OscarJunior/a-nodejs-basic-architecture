@@ -20,7 +20,8 @@
           "prev": ["const", "let", "var"],
           "next": ["block-like", "block", "expression"]
         }
-      ]
+      ],
+      "arrow-parens": ["error", "as-needed"]
     }
   }
   

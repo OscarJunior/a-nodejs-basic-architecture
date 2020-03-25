@@ -19,7 +19,6 @@ RUN cd /tmp && npm install
 FROM base AS development
 
 COPY .eslintrc.json ./
-COPY .gitignore ./
 COPY .prettierrc ./
 
 # Copy app sources

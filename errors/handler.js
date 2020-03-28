@@ -4,6 +4,9 @@ function logError(err) {
   logger.log({
     level: 'error',
     ...err,
+    name: err.name,
+    message: err.message,
+    stack: err.stack,
   });
 }
 

@@ -18,9 +18,6 @@ RUN cd /tmp && npm install
 ### RELEASE
 FROM base AS development
 
-COPY .eslintrc.json ./
-COPY .prettierrc ./
-
 # Copy app sources
 COPY . .
 

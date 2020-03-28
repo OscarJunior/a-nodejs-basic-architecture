@@ -8,6 +8,10 @@ docker-compose
 error.log
 combined.log
 
+# config
+.eslintrc.json
+.prettierrc
+
 .git
 .github
 .gitignore

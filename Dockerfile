@@ -1,5 +1,3 @@
-##################################
-### BASE
 FROM node:dubnium-alpine AS base
 
 # Set the working directory
@@ -14,7 +12,6 @@ FROM base AS dependencies
 # Install Node.js dependencies
 RUN cd /tmp && npm install
 
-##################################
 ### RELEASE
 FROM base AS development
 

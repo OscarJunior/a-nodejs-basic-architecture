@@ -1,4 +1,4 @@
-# NODEJS BASIC ARCHITECTURE
+# NODEJS GOOD PRACTICES
 
 As a heads up, I’m not assuming a supreme knowledge on the subject; the aid of this project is to show some of the **NODE.JS** best practices, to do it we are gonna use a modern approach and obviously put them together in code.
 The illustration of these practices is out from the project scope, it is [this repository](https://github.com/goldbergyoni/nodebestpractices) that contains the extended explication of them.

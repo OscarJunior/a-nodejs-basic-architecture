@@ -1,25 +1,16 @@
-FROM node:dubnium-alpine AS base
+FROM node:dubnium-alpine
 
 # Set the working directory
 WORKDIR /app
 
 # Copy project specification and dependencies lock files
-COPY package*.json /tmp/
+COPY package*.json ./
 
-### DEPENDENCIES
-FROM base AS dependencies
-
-# Install Node.js dependencies
-RUN cd /tmp && npm install
-
-### RELEASE
-FROM base AS development
+# Install dependencies
+RUN npm install
 
 # Copy app sources
 COPY . .
-
-# Copy dependencies
-COPY --from=dependencies /tmp/node_modules ./node_modules
 
 # Expose application port
 EXPOSE 8080

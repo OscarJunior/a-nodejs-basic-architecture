@@ -1,7 +1,7 @@
 const bodyParser = require('body-parser');
 
 const packageJson = require('../package.json');
-const { usersController } = require('../components/Users');
+const { usersController } = require('./components/Users');
 
 function generateRoutes(app) {
   const bodyParserJson = bodyParser.json({

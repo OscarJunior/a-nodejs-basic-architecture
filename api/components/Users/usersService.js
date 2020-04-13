@@ -1,6 +1,6 @@
 const usersDAL = require('./usersDAL');
-const ApiError = require('../../errors/ApiErrors');
-const { RequiredInout } = require('../../errors/commonErrors');
+const ApiError = require('../../../errors/ApiErrors');
+const { RequiredInout } = require('../../../errors/commonErrors');
 
 const getByQuery = (query, populates) => {
   const result = usersDAL.findUsers(query);

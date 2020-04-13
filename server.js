@@ -1,17 +1,13 @@
 const http = require('http');
 
 // config
-const app = require('./config/app');
+const app = require('./api/app');
 const database = require('./config/database');
 const { PORT } = require('./config/environment');
 const logger = require('./config/logger');
-const generateRouttes = require('./config/routes');
 
 // errors
 const defaultErrorHandler = require('./errors/handler');
-
-// app
-generateRouttes(app);
 
 const port = PORT || '3000';
 const server = http.createServer(app);

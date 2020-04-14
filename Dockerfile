@@ -13,7 +13,7 @@ RUN npm install
 COPY . .
 
 # Expose application port
-EXPOSE 8080
+EXPOSE $CONTAINER_PORT
 
 # Debugger application port
 EXPOSE 9229

@@ -24,6 +24,7 @@ services:
     volumes:
       - '.:/app'
       - '/app/node_modules'
+      - '/app/logs'
     networks:
       - backend
     links:

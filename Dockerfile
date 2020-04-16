@@ -1,4 +1,4 @@
-FROM node:dubnium-alpine
+FROM node:10
 
 # Set the working directory
 WORKDIR /app

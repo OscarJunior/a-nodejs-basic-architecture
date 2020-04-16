@@ -1,5 +1,6 @@
 const express = require('express');
 const usersService = require('./usersService');
+const defaultErrorHandler = require('../../errors/handler');
 
 const router = express.Router();
 
@@ -10,7 +11,9 @@ router.get('', async (req, res) => {
 
     res.status(200).json(users);
   } catch (e) {
-    res.status(e.httpCode).json(e);
+    defaultErrorHandler(e);
+
+    res.status(e.httpCode || 500).json(e);
   }
 });
 

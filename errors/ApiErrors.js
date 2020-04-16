@@ -1,23 +1,14 @@
-const defaultErrorHandler = require('./handler');
-
-/**
- * https://github.com/goldbergyoni/nodebestpractices#-35-name-your-functions
- */
-function AppError(name, httpCode, description, isOperational) {
+function ApiError(name, message, httpCode) {
   Error.call(this);
   Error.captureStackTrace(this);
 
   this.name = name;
-  this.httpCode = httpCode || 500;
-  this.description = description;
-  this.isOperational = isOperational;
-
-  // default handler
-  defaultErrorHandler.handler.handleError(this);
+  this.httpCode = httpCode;
+  this.message = message;
 }
 
 // extends
-AppError.prototype = Object.create(Error.prototype);
-AppError.prototype.constructor = AppError;
+ApiError.prototype = Object.create(Error.prototype);
+ApiError.prototype.constructor = ApiError;
 
-module.exports = AppError;
+module.exports = ApiError;

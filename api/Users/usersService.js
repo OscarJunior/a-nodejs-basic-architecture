@@ -1,12 +1,13 @@
 const usersDAL = require('./usersDAL');
-const ApiError = require('../../errors/ApiErrors');
-const { RequiredInout } = require('../../errors/commonErrors');
+
+const ApiErrors = require('../../errors/ApiErrors');
+const { InternalServerError } = require('../../errors/commonErrors');
 
 const getByQuery = (query, populates) => {
   const result = usersDAL.findUsers(query);
 
   if (!populates) {
-    throw new ApiError(RequiredInout, 500, 'populates property is required', true);
+    throw new ApiErrors(InternalServerError, 'Populates property is required', 500);
   }
 
   if (!populates.length) {

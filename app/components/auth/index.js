@@ -1,3 +1,4 @@
 const authController = require('./authController');
+const authMiddlewares = require('./authMiddlewares');
 
-module.exports = { authController };
+module.exports = { authController, authMiddlewares };

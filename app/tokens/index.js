@@ -5,6 +5,11 @@ function signToken(payload) {
   return jwt.sign(payload, JWT_PRIVATE_KEY);
 }
 
+function verifyToken(token) {
+  return jwt.verify(token, JWT_PRIVATE_KEY);
+}
+
 module.exports = {
   signToken,
+  verifyToken
 };

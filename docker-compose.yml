@@ -11,7 +11,7 @@ services:
     networks:
       - backend
 
-  nodejs-good-practices:
+  nodejs-app-structure:
     build:
       context: '.'
     command: ${CONTAINER_COMMAND}

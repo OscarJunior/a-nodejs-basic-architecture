@@ -1,7 +1,13 @@
 const http = require('http');
+const express = require('express');
+
+// app
+const cookieParser = require('cookie-parser');
+const compression = require('compression');
+const cors = require('cors');
+const bodyParser = require('body-parser');
 
 // config
-const app = require('./api/app');
 const database = require('./config/database');
 const { PORT } = require('./config/environment');
 const logger = require('./config/logger');
@@ -9,7 +15,29 @@ const logger = require('./config/logger');
 // errors
 const defaultErrorHandler = require('./errors/handler');
 
+// routes
 const port = PORT || '3000';
+const app = express();
+const bodyParserJson = bodyParser.json({
+  limit: '5mb',
+});
+const bodyParserUrl = bodyParser.urlencoded({
+  limit: '5mb',
+  extended: true,
+  parameterLimit: 50000,
+});
+
+// config app
+
+// routes
+app.use(compression());
+app.use(cors());
+app.use(cookieParser());
+app.use(bodyParserJson);
+app.use(bodyParserUrl);
+
+require('./routes')(app);
+
 const server = http.createServer(app);
 
 database.loadDB();

@@ -2,11 +2,11 @@
   "name": "nodejs-good-practices",
   "version": "1.0.0",
   "description": "",
-  "main": "server.js",
+  "main": "app/server.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start:dev": "nodemon -L --inspect=0.0.0.0 server",
-    "start:prod": "node server"
+    "start:dev": "nodemon -L --inspect=0.0.0.0 app/server.js",
+    "start:prod": "node app/server.js"
   },
   "author": "",
   "license": "ISC",

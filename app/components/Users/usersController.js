@@ -6,14 +6,17 @@ const router = express.Router();
 
 router.get('', async (req, res) => {
   try {
-    const { values = {}, properties = [] } = req.query;
-    const users = await usersService.getByQuery(values, properties);
+    const { values = {} } = req.query;
+    const users = await usersService.getUsersByQuery(values);
 
     res.status(200).json(users);
   } catch (e) {
     defaultErrorHandler(e);
 
-    res.status(e.httpCode || 500).json(e);
+    res.status(e.httpCode || 500).send({
+      name: e.name,
+      message: e.message,
+    });
   }
 });
 

@@ -1,22 +1,13 @@
 const usersDAL = require('./usersDAL');
 
-const ApiErrors = require('../../errors/ApiErrors');
-const { InternalServerError } = require('../../errors/commonErrors');
+const getUsersByQuery = (query) => usersDAL.findUsers(query);
 
-const getByQuery = (query, populates) => {
-  const result = usersDAL.findUsers(query);
+const getUserByQuery = (query) => usersDAL.findUser(query);
 
-  if (!populates) {
-    throw new ApiErrors(InternalServerError, 'Populates property is required', 500);
-  }
-
-  if (!populates.length) {
-    return result;
-  }
-
-  return populates.reduce((acc, populate) => acc.populate(populate), result);
-};
+const createNewUser = (body) => usersDAL.saveUser(body);
 
 module.exports = {
-  getByQuery,
+  getUsersByQuery,
+  getUserByQuery,
+  createNewUser,
 };

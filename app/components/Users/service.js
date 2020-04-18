@@ -1,4 +1,4 @@
-const usersDAL = require('./usersDAL');
+const usersDAL = require('./DAL');
 
 const getUsersByQuery = (query) => usersDAL.findUsers(query);
 

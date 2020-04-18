@@ -1,6 +1,6 @@
 const express = require('express');
 
-const usersService = require('./usersService');
+const usersService = require('./service');
 const defaultErrorHandler = require('../../errors/handler');
 const { authMiddlewares } = require('../auth');
 

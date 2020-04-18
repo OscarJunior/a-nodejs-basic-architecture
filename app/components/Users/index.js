@@ -1,6 +1,6 @@
-const usersController = require('./usersController');
-const usersService = require('./usersService');
-const usersActions = require('./usersActions');
+const usersController = require('./controller');
+const usersService = require('./service');
+const usersActions = require('./actions');
 
 module.exports = {
   usersController,

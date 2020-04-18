@@ -1,6 +1,6 @@
 const express = require('express');
 
-const { signup, login } = require('./authActions');
+const { signup, login } = require('./actions');
 const defaultErrorHandler = require('../../errors/handler');
 
 const router = express.Router();

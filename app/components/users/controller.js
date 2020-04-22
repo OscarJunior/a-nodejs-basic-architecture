@@ -2,7 +2,7 @@ const express = require('express');
 
 const { listUsers } = require('./actions');
 const defaultErrorHandler = require('../../errors/handler');
-const { authMiddlewares } = require('../../middlewares');
+const { authMiddlewares } = require('../auth/middlewares');
 
 const router = express.Router();
 

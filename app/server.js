@@ -8,7 +8,7 @@ const cors = require('cors');
 const bodyParser = require('body-parser');
 
 // config
-const database = require('./config/database');
+require('./config/database')().then();
 const { PORT } = require('./config/environment');
 const logger = require('./config/logger');
 
@@ -27,8 +27,6 @@ const bodyParserUrl = bodyParser.urlencoded({
   parameterLimit: 50000,
 });
 
-// config app
-
 // routes
 app.use(compression());
 app.use(cors());
@@ -40,7 +38,6 @@ require('./routes')(app);
 
 const server = http.createServer(app);
 
-database.loadDB();
 server.listen(port);
 
 logger.log({

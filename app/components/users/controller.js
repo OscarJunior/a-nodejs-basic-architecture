@@ -1,15 +1,13 @@
 const express = require('express');
 
-const usersService = require('./service');
+const { listUsers } = require('./actions');
 const defaultErrorHandler = require('../../errors/handler');
-const { authMiddlewares } = require('../auth');
+const { authMiddlewares } = require('../../middlewares');
 
 const router = express.Router();
 
 router.get('', authMiddlewares.loggedIn, (req, res) => {
-  const { userId } = req.payload;
-
-  usersService.getUsersByQuery({ _id: userId }).then(
+  listUsers({ id: req.payload.userId }).then(
     (users) => {
       res.status(200).json(users);
     },

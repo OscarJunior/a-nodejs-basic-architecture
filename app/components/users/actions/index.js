@@ -1,5 +1,9 @@
-const validations = require('./validations');
+const listUsers = require('./listUsers');
+const getSpecificUser = require('./getSpecificUser');
+const createNewUser = require('./createNewUser');
 
 module.exports = {
-  validations,
+  listUsers,
+  getSpecificUser,
+  createNewUser,
 };

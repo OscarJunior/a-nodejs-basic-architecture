@@ -1,14 +1,11 @@
 const { AppError, INVALID_ARGUMENT } = require('../../../errors');
 const { compareMatch } = require('../../../cryptions');
-const { usersService, usersActions } = require('../../users');
 const { signToken } = require('../../../tokens');
 
-async function login(data) {
-  if (!usersActions.validations.validateBodyUser(data)) {
-    throw new AppError(INVALID_ARGUMENT, 'Check args and try again', 400);
-  }
+const usersActions = require('../../users/actions');
 
-  const user = await usersService.getUserByQuery({
+async function login(data) {
+  const user = await usersActions.getSpecificUser({
     username: data.username,
   });
 
@@ -20,7 +17,7 @@ async function login(data) {
 
   if (match) {
     const token = signToken({
-      userId: user._id,
+      userId: user.id,
     });
 
     return {

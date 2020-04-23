@@ -7,8 +7,8 @@ const cors = require('cors');
 const bodyParser = require('body-parser');
 
 const { PORT } = require('../environment');
-const logger = require('../logger');
 const { generateRoutes } = require('./routes');
+const logger = require('../../utils/logger');
 
 function start() {
   const port = PORT || '3000';

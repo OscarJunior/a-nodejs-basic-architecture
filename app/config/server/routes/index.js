@@ -22,4 +22,4 @@ function generateRoutes(app) {
   });
 }
 
-module.exports = generateRoutes;
+module.exports = { generateRoutes };

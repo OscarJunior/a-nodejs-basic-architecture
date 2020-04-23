@@ -8,6 +8,7 @@ const bodyParser = require('body-parser');
 
 const { PORT } = require('../environment');
 const logger = require('../logger');
+const { generateRoutes } = require('./routes');
 
 function start() {
   const port = PORT || '3000';
@@ -27,8 +28,7 @@ function start() {
   app.use(cookieParser());
   app.use(bodyParserJson);
   app.use(bodyParserUrl);
-
-  require('./routes')(app);
+  generateRoutes(app);
 
   const server = http.createServer(app);
 

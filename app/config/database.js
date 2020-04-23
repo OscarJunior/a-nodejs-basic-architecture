@@ -5,14 +5,12 @@ const { MongoClient } = mongodb;
 
 const client = new MongoClient(MONGO_URI, { useNewUrlParser: true });
 
-function getDB() {
-  if (!client.isConnected()) {
-    return client.connect();
-  }
-
-  const db = client.db(MONGO_DB_NAME);
-
-  return db;
+function getCollection(collectionName) {
+  return client.db(MONGO_DB_NAME).collection(collectionName);
 }
 
-module.exports = getDB;
+function loadDB() {
+  return client.connect();
+}
+
+module.exports = { loadDB, getCollection };

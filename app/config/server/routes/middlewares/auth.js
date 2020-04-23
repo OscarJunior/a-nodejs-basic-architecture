@@ -18,7 +18,7 @@ function loggedIn(req, res, next) {
 
     res.status(401).send({
       name: UNAUTHORIZED,
-      message: 'usnauthorized',
+      message: 'you do not have permissions to access',
     });
   }
 }

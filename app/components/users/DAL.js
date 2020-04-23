@@ -1,8 +1,7 @@
-const getDB = require('../../config/database');
+const db = require('../../config/database');
 
 const findUsers = async (query) => {
-  const db = await getDB();
-  const result = await db.collection('users').find(query);
+  const result = await db.getCollection('users').find(query);
   const users = await result.toArray();
 
   return users.map((user) => {
@@ -13,8 +12,7 @@ const findUsers = async (query) => {
 };
 
 const findUser = async (query) => {
-  const db = await getDB();
-  const result = await db.collection('users').find(query);
+  const result = await db.getCollection('users').find(query);
   const found = await result.toArray();
 
   if (found.length === 0) {
@@ -27,8 +25,7 @@ const findUser = async (query) => {
 };
 
 const saveUser = async (body) => {
-  const db = await getDB();
-  const result = await db.collection('users').insertOne(body);
+  const result = await db.getCollection('users').insertOne(body);
 
   delete result.ops[0]._id;
 

@@ -1,12 +1,12 @@
 // config
 const server = require('./config/server');
-const database = require('./config/database');
+const { loadDB } = require('./config/database');
 
 // errors
 const defaultErrorHandler = require('./utils/errors');
 
 function main() {
-  database().then();
+  loadDB().then();
   server.start();
 }
 

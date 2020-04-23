@@ -1,4 +1,4 @@
-const { generateNewId } = require('../../../utils/ids');
+const idsUtils = require('../../../utils/ids');
 const { AppError, INVALID_ARGUMENT } = require('../../../utils/errors');
 
 function validateBodyUser(data) {
@@ -24,7 +24,7 @@ function generateNewUser(data) {
     throw new AppError(INVALID_ARGUMENT, 'Check args and try again', 400);
   }
 
-  return { ...data, createdOn: Date.now(), id: generateNewId() };
+  return { ...data, createdOn: Date.now(), id: idsUtils.generateNewId() };
 }
 
 module.exports = generateNewUser;

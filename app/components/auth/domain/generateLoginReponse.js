@@ -1,7 +1,7 @@
-const { signToken } = require('../../../utils/tokens');
+const tokensUtils = require('../../../utils/tokens');
 
 function generateLoginResponse(user) {
-  const token = signToken({
+  const token = tokensUtils.signToken({
     userId: user.id,
   });
 

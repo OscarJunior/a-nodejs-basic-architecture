@@ -1,5 +1,5 @@
 const { AppError, INVALID_ARGUMENT } = require('../../../utils/errors');
-const { compareMatch } = require('../../../utils/cryptions');
+const cryptionsUtils = require('../../../utils/cryptions');
 
 const authDomain = require('../domain');
 const usersActions = require('../../users/actions');
@@ -13,7 +13,7 @@ async function login(usersDAL, data) {
     throw new AppError(INVALID_ARGUMENT, 'Invalid username', 400);
   }
 
-  const match = await compareMatch(data.password, user.password);
+  const match = await cryptionsUtils.compareMatch(data.password, user.password);
 
   if (match) {
     return authDomain.generateLoginResponse(user);

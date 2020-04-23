@@ -1,25 +1,10 @@
-const express = require('express');
+const usersActions = require('./actions');
+const usersDAL = require('./DAL');
 
-const { listUsers } = require('./actions');
-const defaultErrorHandler = require('../../errors/handler');
-const { authMiddlewares } = require('../auth/middlewares');
+function getUsers(req) {
+  return usersActions.listUsers(usersDAL, { id: req.payload.userId });
+}
 
-const router = express.Router();
-
-router.get('', authMiddlewares.loggedIn, (req, res) => {
-  listUsers({ id: req.payload.userId }).then(
-    (users) => {
-      res.status(200).json(users);
-    },
-    (e) => {
-      defaultErrorHandler(e);
-
-      res.status(e.httpCode || 500).send({
-        name: e.name,
-        message: e.message,
-      });
-    }
-  );
-});
-
-module.exports = router;
+module.exports = {
+  getUsers,
+};

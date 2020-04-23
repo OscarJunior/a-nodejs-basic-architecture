@@ -1,4 +1,4 @@
-const { signToken } = require('../../../tokens');
+const { signToken } = require('../../../utils/tokens');
 
 function generateLoginResponse(user) {
   const token = signToken({

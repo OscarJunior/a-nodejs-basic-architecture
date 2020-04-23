@@ -1,5 +1,5 @@
-const { v4 } = require('uuid');
-const { AppError, INVALID_ARGUMENT } = require('../../../errors');
+const { generateNewId } = require('../../../utils/ids');
+const { AppError, INVALID_ARGUMENT } = require('../../../utils/errors');
 
 function validateBodyUser(data) {
   const { username, password } = data;
@@ -24,7 +24,7 @@ function generateNewUser(data) {
     throw new AppError(INVALID_ARGUMENT, 'Check args and try again', 400);
   }
 
-  return { ...data, createdOn: Date.now(), id: v4() };
+  return { ...data, createdOn: Date.now(), id: generateNewId() };
 }
 
 module.exports = generateNewUser;

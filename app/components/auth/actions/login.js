@@ -1,11 +1,11 @@
-const { AppError, INVALID_ARGUMENT } = require('../../../errors');
-const { compareMatch } = require('../../../cryptions');
+const { AppError, INVALID_ARGUMENT } = require('../../../utils/errors');
+const { compareMatch } = require('../../../utils/cryptions');
 
 const authDomain = require('../domain');
 const usersActions = require('../../users/actions');
 
-async function login(data) {
-  const user = await usersActions.getSpecificUser({
+async function login(usersDAL, data) {
+  const user = await usersActions.getSpecificUser(usersDAL, {
     username: data.username,
   });
 

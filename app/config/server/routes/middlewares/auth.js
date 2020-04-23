@@ -1,4 +1,4 @@
-const { verifyToken } = require('../../../../utils/errors');
+const { verifyToken } = require('../../../../utils/tokens');
 const { UNAUTHORIZED, defaultErrorHandler } = require('../../../../utils/errors');
 
 function getAuthToken(req) {

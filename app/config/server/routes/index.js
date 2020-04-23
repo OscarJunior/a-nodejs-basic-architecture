@@ -12,7 +12,7 @@ const { authController } = require('../../../components/auth');
 const { authMiddlewares } = require('./middlewares');
 
 // utils
-const { makeFailResponse, makeSuccessResponse } = require('../utils');
+const { makeFailResponse, makeSuccessResponse } = require('./utils');
 
 function generateRoutes(app) {
   app.get('/api', (req, res) => {

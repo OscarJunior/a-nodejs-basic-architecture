@@ -1,4 +1,4 @@
-const { defaultErrorHandler } = require('../../../utils/errors');
+const { defaultErrorHandler } = require('../../../../utils/errors');
 
 function makeFailResponse(res, error) {
   defaultErrorHandler(error);

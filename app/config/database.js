@@ -5,9 +5,9 @@ const { MongoClient } = mongodb;
 
 const client = new MongoClient(MONGO_URI, { useNewUrlParser: true });
 
-async function getDB() {
+function getDB() {
   if (!client.isConnected()) {
-    await client.connect();
+    return client.connect();
   }
 
   const db = client.db(MONGO_DB_NAME);

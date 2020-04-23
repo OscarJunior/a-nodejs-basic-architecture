@@ -1,15 +1,15 @@
 // package
-const packageJson = require('../../package.json');
+const packageJson = require('../../../../package.json');
 
 // errors
-const { NOT_FOUND } = require('../errors/commonErrors');
+const { NOT_FOUND } = require('../../../errors/commonErrors');
 
 // routes
-const { usersController } = require('../components/users');
-const { authController } = require('../components/auth');
+const { usersController } = require('../../../components/users');
+const { authController } = require('../../../components/auth');
 
 function generateRoutes(app) {
-  app.get('/', (req, res) => {
+  app.get('/api', (req, res) => {
     res.send({ name: packageJson.name, version: packageJson.version });
   });
 

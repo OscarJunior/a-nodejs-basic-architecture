@@ -1,7 +1,3 @@
-/**
- *
- * https://github.com/goldbergyoni/nodebestpractices#-27-use-a-mature-logger-to-increase-error-visibility
- */
 const { createLogger, format, transports } = require('winston');
 const { NODE_ENV } = require('./environment');
 
@@ -32,9 +28,6 @@ function init() {
     );
   }
 
-  /**
-   * https://github.com/goldbergyoni/nodebestpractices#-35-name-your-functionshttps://github.com/goldbergyoni/nodebestpractices#-35-name-your-functions
-   */
   return function getLogger() {
     return logger;
   };

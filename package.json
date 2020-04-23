@@ -2,11 +2,11 @@
   "name": "nodejs-app-structure",
   "version": "1.0.0",
   "description": "",
-  "main": "app/server.js",
+  "main": "app/",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start:dev": "nodemon -L --inspect=0.0.0.0 app/server.js",
-    "start:prod": "node app/server.js"
+    "start:dev": "nodemon -L --inspect=0.0.0.0 app/",
+    "start:prod": "node app/"
   },
   "author": "",
   "license": "ISC",

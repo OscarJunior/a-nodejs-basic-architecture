@@ -1,9 +1,9 @@
-const { generateHash } = require('../../../utils/cryptions');
+const cryptionsUtils = require('../../../utils/cryptions');
 const usersDomain = require('../domain');
 
 async function createNewUser(usersDAL, data) {
   const generatedBody = usersDomain.generateNewUser(data);
-  const encryptedPassword = await generateHash(generatedBody.password);
+  const encryptedPassword = await cryptionsUtils.generateHash(generatedBody.password);
 
   return usersDAL.saveUser({
     ...generatedBody,

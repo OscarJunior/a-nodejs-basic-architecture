@@ -26,7 +26,7 @@ describe('login', () => {
     sandbox.restore();
   });
 
-  it('login success', (done) => {
+  it('default success', (done) => {
     const usersDAL = {};
     const data = {
       username: 'username',

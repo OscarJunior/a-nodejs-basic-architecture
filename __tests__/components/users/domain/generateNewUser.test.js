@@ -38,7 +38,7 @@ describe('generateNewUser', () => {
     done();
   });
 
-  it('It checks validation body was up', (done) => {
+  it('it checks validation body was up', (done) => {
     const input = {};
 
     function getThrow() {

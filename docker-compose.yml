@@ -7,20 +7,17 @@ services:
     volumes:
       - mongodbvolume:/data/db
     ports:
-      - '27017:27017'
+      - '27019:27017'
     networks:
       - backend
 
   nodejs-app-structure:
+    env_file: .envrc.sample
     build:
       context: '.'
-    command: ${CONTAINER_COMMAND}
     restart: always
     depends_on:
       - mongodb
-    ports:
-      - '${CONTAINER_PORT}:${CONTAINER_PORT}'
-      - '9229:9229'
     volumes:
       - '.:/app'
       - '/app/node_modules'

@@ -3,7 +3,7 @@ const server = require('./config/server');
 const { loadDB } = require('./config/database');
 
 // errors
-const defaultErrorHandler = require('./utils/errors');
+const { defaultErrorHandler } = require('./utils/errors');
 
 function main() {
   loadDB().then();

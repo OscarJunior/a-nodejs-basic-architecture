@@ -2,4 +2,4 @@ PORT=8080
 MONGO_URI=mongodb://mongodb:27017
 MONGO_DB_NAME=node-basic-architecture
 JWT_PRIVATE_KEY=qwerty1234567890
-NODE_ENV=env
+NODE_ENV=dev

@@ -5,7 +5,7 @@ function init() {
   const logger = createLogger({
     level: 'info',
     format: format.json(),
-    defaultMeta: { service: 'nodejs-app-structure' },
+    defaultMeta: { service: 'nodejs-app' },
     transports: [
       //
       // - Write to all logs with level `info` and below to `combined.log`

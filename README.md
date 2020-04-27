@@ -11,4 +11,4 @@
 # Deployment
 * go to `resource-manifests`
 * `kubectl create -f nodejs-app-deployment.yaml --record`
-* `kubectl create -f nodejs-test-lb.yaml`
+* `kubectl create -f nodejs-app-lb.yaml`

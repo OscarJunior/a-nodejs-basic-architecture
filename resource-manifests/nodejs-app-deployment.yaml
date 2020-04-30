@@ -21,7 +21,7 @@ spec:
         app: nodejs-app
     spec:
       containers:
-        - image: oscarjunior/nodejs-app
+        - image: oscarjunior/nodejs-app:note-service
           imagePullPolicy: Always
           name: nodejs-app
           ports:

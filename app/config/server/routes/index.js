@@ -35,6 +35,12 @@ function generateRoutes(app) {
       (e) => makeFailResponse(res, e)
     );
   });
+  app.post('/api/note', authMiddlewares.loggedIn, (req, res) => {
+    notesController.createNote(req).then(
+      (notes) => makeSuccessResponse(res, { httpCode: 201, body: notes }),
+      (e) => makeFailResponse(res, e)
+    );
+  });
 
   // auth routes
   app.post('/api/auth/signup', (req, res) => {

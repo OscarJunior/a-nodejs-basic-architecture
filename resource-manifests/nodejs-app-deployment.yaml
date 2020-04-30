@@ -37,3 +37,5 @@ spec:
               value: "MONGO_URI"
             - name: MONGO_DB_NAME
               value: "MONGO_DB_NAME"
+            - name: NOTES_END_POINT
+              value: "NOTES_END_POINT"

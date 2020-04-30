@@ -11,7 +11,6 @@ const { generateRoutes } = require('./routes');
 const logger = require('../../utils/logger');
 
 function start() {
-  const port = PORT || '3000';
   const app = express();
   const bodyParserJson = bodyParser.json({
     limit: '5mb',
@@ -32,11 +31,11 @@ function start() {
 
   const server = http.createServer(app);
 
-  server.listen(port);
+  server.listen(PORT);
 
   logger.log({
     level: 'info',
-    message: `Your server is listening on port ${port} (http://localhost:${port})`,
+    message: `Your server is listening on port ${PORT} (http://localhost:${PORT})`,
   });
 }
 

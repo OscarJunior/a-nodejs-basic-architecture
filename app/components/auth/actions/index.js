@@ -1,5 +1,5 @@
-const login = require('./login');
+const isMatch = require('./isMatch');
 
 module.exports = {
-  login,
+  isMatch,
 };

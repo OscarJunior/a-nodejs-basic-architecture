@@ -32,7 +32,7 @@ async function postLogin(req) {
     throw new AppError(INVALID_ARGUMENT, 'Invalid username', 400);
   }
 
-  const match = await authActions.login(req.body.password, user);
+  const match = await authActions.isMatch(req.body.password, user);
 
   if (!match) {
     throw new AppError(INVALID_ARGUMENT, 'Invalid password', 400);

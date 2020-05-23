@@ -21,4 +21,4 @@ COPY . .
 # Expose application port
 EXPOSE ${PORT}
 
-CMD [ "npm" , "run", "start:prod"]
+CMD [ "npm" , "run", "start:dev"]

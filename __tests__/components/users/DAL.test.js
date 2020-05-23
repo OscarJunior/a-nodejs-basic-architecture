@@ -1,59 +1,88 @@
+// testing
 const chai = require('chai');
 const sinon = require('sinon');
 
-const usersDAL = require('../../../app/components/users/DAL');
-const db = require('../../../app/config/database');
+// database
+const mongodb = require('mongodb');
+const { MongoMemoryServer } = require('mongodb-memory-server');
 
-const userCollection = require('../../fixtures/userCollection');
+// to test
+const dbAPI = require('../../../app/config/database');
+const DAL = require('../../../app/components/users/DAL');
 
 const { expect } = chai;
+const { MongoClient } = mongodb;
 
-describe('usersDAL', () => {
+describe('DAL; users', () => {
   let sandbox;
+  let con;
+  let dbMockAPI;
+  let mongoServer;
+
+  before(async () => {
+    mongoServer = new MongoMemoryServer();
+    const mongoUri = await mongoServer.getConnectionString();
+
+    con = await MongoClient.connect(mongoUri, {
+      useNewUrlParser: true,
+      useUnifiedTopology: true,
+    });
+
+    dbMockAPI = con.db(await mongoServer.getDbName());
+  });
+
+  after(async () => {
+    if (con) {
+      con.close();
+    }
+
+    if (mongoServer) {
+      await mongoServer.stop();
+    }
+  });
 
   beforeEach(() => {
     sandbox = sinon.createSandbox();
-
-    sandbox
-      .stub(db, 'getCollection')
-      .withArgs('users')
-      .callsFake(() => userCollection);
+    sandbox.stub(dbAPI, 'getCollection').callsFake((name) => dbMockAPI.collection(name));
   });
 
   afterEach(() => {
     sandbox.restore();
   });
 
-  it('findUsers', (done) => {
-    usersDAL.findUsers().then((users) => {
-      const response = [{ bar: 'bar' }, { foo: 'foo' }];
+  it('it inserts a new user', (done) => {
+    const body = {
+      foo: 'bar',
+    };
 
-      expect(users).to.deep.equal(response);
-      done();
-    });
-  });
-
-  it('findUser', (done) => {
-    usersDAL.findUser().then((specificUser) => {
-      expect(specificUser).to.deep.equal({ bar: 'bar' });
+    DAL.saveUser(body).then((created) => {
+      expect(created).to.include(body);
+      expect(created).to.include.keys('_id');
 
       done();
     });
   });
 
-  it('user was not found', (done) => {
-    const query = { isEmpty: true };
+  it('it finds one user', (done) => {
+    const query = {
+      foo: 'bar',
+    };
 
-    usersDAL.findUser(query).then((specificUser) => {
-      expect(specificUser).to.be.a('null');
+    DAL.findUser(query).then((found) => {
+      expect(found).to.include(query);
+      expect(found).to.include.keys('_id');
 
       done();
     });
   });
 
-  it('saveUser', (done) => {
-    usersDAL.saveUser().then((newUser) => {
-      expect(newUser).to.deep.equal({ foo: 'foo' });
+  it('it finds users', (done) => {
+    const query = {
+      bar: 'foo',
+    };
+
+    DAL.findUsers(query).then((found) => {
+      expect(found).to.be.an('array');
 
       done();
     });

@@ -8,14 +8,6 @@ function validateBodyUser(data) {
     return false;
   }
 
-  if (username && username.length < 1) {
-    return false;
-  }
-
-  if (password && password.length < 1) {
-    return false;
-  }
-
   return true;
 }
 

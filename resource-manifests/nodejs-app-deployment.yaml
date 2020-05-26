@@ -1,7 +1,7 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: nodejs-app
+  name: nodejs-app-deployment
   labels:
     app: nodejs-app
 spec:
@@ -23,7 +23,7 @@ spec:
       containers:
         - image: oscarjunior/nodejs-app:note-service
           imagePullPolicy: Always
-          name: nodejs-app
+          name: nodejs-app-container
           ports:
             - containerPort: 8080
           env:

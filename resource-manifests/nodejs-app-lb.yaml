@@ -1,12 +1,12 @@
 apiVersion: v1
 kind: Service
 metadata:
-  name: nodejs-app
+  name: nodejs-app-service ## a new Service object named "nodejs-app"
 spec:
-  type: LoadBalancer
-  ports:
-  - port: 8080
-    protocol: TCP
-    targetPort: 8080
   selector:
     app: nodejs-app
+  type: LoadBalancer
+  ports: ## targets TCP port 8080 on any Pod with the app=nodejs-app label
+  - protocol: TCP
+    port: 8080
+    targetPort: 8080

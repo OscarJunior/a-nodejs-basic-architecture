@@ -1,7 +1,7 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: nodejs-app
+  name: nodejs-app-deployment
   labels:
     app: nodejs-app
 spec:
@@ -21,19 +21,19 @@ spec:
         app: nodejs-app
     spec:
       containers:
-        - image: oscarjunior/nodejs-app
+        - image: oscarjunior/nodejs-app:v1
           imagePullPolicy: Always
-          name: nodejs-app
+          name: nodejs-app-container
           ports:
             - containerPort: 8080
           env:
-            - name: PORT
-              value: "PORT"
-            - name: JWT_PRIVATE_KEY
-              value: "JWT_PRIVATE_KEY"
-            - name: NODE_ENV
-              value: "NODE_ENV"
-            - name: MONGO_URI
-              value: "MONGO_URI"
-            - name: MONGO_DB_NAME
-              value: "MONGO_DB_NAME"
+          - name: PORT
+            value: "PORT"
+          - name: JWT_PRIVATE_KEY
+            value: "JWT_PRIVATE_KEY"
+          - name: NODE_ENV
+            value: "NODE_ENV"
+          - name: MONGO_URI
+            value: "MONGO_URI"
+          - name: MONGO_DB_NAME
+            value: "MONGO_DB_NAME"
